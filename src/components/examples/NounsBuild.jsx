@@ -29,9 +29,9 @@ export const NounsBuild = () => {
             <ActiveAuction.ActiveBids>
               {(bids) => (
                 <>
-                  {bids.map((bid) => {
+                  {bids.map((bid, idx) => {
                     return (
-                      <div className="flex flex-row">
+                      <div className="flex flex-row" key={`bid-${idx}`}>
                         <span>{bid.bidder}</span>
                         <span>{bid.amount}</span>
                       </div>
