@@ -9,7 +9,6 @@ import { Prose } from '@/components/Prose'
 import { SectionProvider } from '@/components/SectionProvider'
 
 export function Layout({ children, sections = [] }) {
-  console.log(sections)
   return (
     <SectionProvider sections={[]}>
       <div className="lg:ml-72 xl:ml-80">
