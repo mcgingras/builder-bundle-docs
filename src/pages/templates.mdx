@@ -1,0 +1,66 @@
+export const description =
+  'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.'
+
+# Templates
+
+Templates are full page examples of builder bundle. These can be considered "complete" pages utilizing all of the components across the builder bundle stack. Feel free to copy these examples, or use them as inspiration. {{ className: 'lead' }}
+
+## Default
+
+<CodeGroup>
+```javascript {{ language: 'js' }}
+import { BuilderProvider, ActiveAuction } from "builder-bundle";
+
+const BUILDER_COLLECTION_ADDRESS = "0xdf9b7d26c8fc806b1ae6273684556761ff02d422";
+const BUILDER_AUCTION_ADDRESS = "0x658d3a1b6dabcfbaa8b75cc182bf33efefdc200d";
+const BUILDER_GOVERNER_ADDRESS = "0xe3f8d5488c69d18abda42fca10c177d7c19e8b1a";
+
+const Auction = () => {
+  return (
+    <BuilderProvider
+      collectionAddress={BUILDER_COLLECTION_ADDRESS}
+      auctionAddress={BUILDER_AUCTION_ADDRESS}
+      governerAddress={BUILDER_GOVERNER_ADDRESS}
+    >
+      <div className="flex items-center justify-center h-screen w-screen bg-gray-100">
+        <div className="grid grid-cols-2 gap-6 border rounded shadow-lg bg-white px-6 py-6">
+          <ActiveAuction className="w-96 h-96 rounded" />
+          <div className="space-y-8">
+            <ActiveAuction.Title className="text-3xl font-bold" />
+            <div className="grid grid-cols-2 gap-4 mt-6">
+              <div className="flex flex-col">
+                <label className="text-gray-400">Current bid</label>
+                <ActiveAuction.Price className="text-xl" />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-400">Auction ends in</label>
+                <ActiveAuction.Countdown className="text-xl" />
+              </div>
+            </div>
+            <ActiveAuction.ActiveBids>
+              {(bids: any) => (
+                <>
+                  {bids.map((bid: any) => {
+                    return (
+                      <div className="flex flex-row">
+                        <span>{bid.bidder}</span>
+                        <span>{bid.amount}</span>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+            </ActiveAuction.ActiveBids>
+          </div>
+        </div>
+      </div>
+    </BuilderProvider>
+  );
+};
+```
+</CodeGroup>
+
+
+
+
+
