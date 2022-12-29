@@ -1,0 +1,74 @@
+export const description =
+  'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.'
+
+# Quickstart
+
+Make sure you have have builder bundle installed in your project. {{ className: 'lead' }}
+
+<CodeGroup>
+
+```bash {{ language: 'js' }}
+# Install builder bundle
+npm install builder-bundle
+```
+
+</CodeGroup>
+
+## Wrap with the provider
+
+Builder bundle needs to be aware of your Nouns Builder contract addresses. Wrapping your project in the builder bundle `BuilderProvider` allows builder bundle hooks and components to easily read from your contracts. To start, wrap the root of your project with `BuilderProvider`. It should look something like this.
+
+<CodeGroup>
+```javascript {{ language: 'js' }}
+const BUILDER_COLLECTION_ADDRESS = "YOUR-COLLECTION-ADDRESS";
+const BUILDER_AUCTION_ADDRESS = "YOUR-AUCTION-ADDRESS";
+const BUILDER_GOVERNOR_ADDRESS = "YOUR-GOVERNOR-ADDRESS";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <BuilderProvider
+      collectionAddress={BUILDER_COLLECTION_ADDRESS}
+      auctionAddress={BUILDER_AUCTION_ADDRESS}
+      governorAddress={BUILDER_GOVERNOR_ADDRESS}
+    >
+      <Component {...pageProps} />
+    </BuilderProvider>
+  ) 
+}
+````
+</CodeGroup>
+
+
+
+## Using your first component
+
+Once you've wrapped your app with the `BuilderProvider` you can start using the components.
+
+<CodeGroup tag="GET" label="/v1/conversations">
+
+```bash {{ title: 'cURL' }}
+curl -G https://api.protocol.chat/v1/conversations \
+  -H "Authorization: Bearer {token}" \
+  -d limit=10
+````
+
+```js
+import ApiClient from '@example/protocol-api'
+
+const client = new ApiClient(token)
+
+await client.conversations.list()
+```
+
+
+</CodeGroup>
+
+
+
+## What's next?
+
+Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
+
+- [Browse the full set of components(coming soon)](/#)
+- [Read about hooks (coming soon)](/#)
+- [Check out some styled examples (coming soon)](/#)
