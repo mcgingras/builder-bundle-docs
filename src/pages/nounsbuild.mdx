@@ -24,8 +24,8 @@ const Auction = () => {
       auctionAddress={BUILDER_AUCTION_ADDRESS}
       governerAddress={BUILDER_GOVERNER_ADDRESS}
     >
-      <div className="flex items-center justify-center h-screen w-screen bg-gray-100">
-        <div className="grid grid-cols-2 gap-6 border rounded shadow-lg bg-white px-6 py-6">
+      <div className="flex items-center justify-center h-screen w-screen bg-gray-100 px-4">
+        <div className="grid md:grid-cols-2 gap-6 border rounded shadow-lg bg-white px-6 py-6">
           <ActiveAuction className="w-96 h-96 rounded" />
           <div className="space-y-8">
             <ActiveAuction.Title className="text-3xl font-bold" />
@@ -42,11 +42,11 @@ const Auction = () => {
             <ActiveAuction.ActiveBids>
               {(bids: any) => (
                 <>
-                  {bids.map((bid: any) => {
+                  {bids?.map((bid: any) => {
                     return (
-                      <div className="flex flex-row">
-                        <span>{bid.bidder}</span>
-                        <span>{bid.amount}</span>
+                      <div className="flex flex-row justify-between">
+                        <span className="font-bold">{bid.bidder}</span>
+                        <span className="text-gray-400">{bid.amount} ETH</span>
                       </div>
                     );
                   })}

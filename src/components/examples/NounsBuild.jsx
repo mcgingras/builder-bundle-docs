@@ -11,9 +11,9 @@ export const NounsBuild = () => {
       auctionAddress={BUILDER_AUCTION_ADDRESS}
       governerAddress={BUILDER_GOVERNER_ADDRESS}
     >
-      <div className="flex h-screen w-screen items-center justify-center rounded-lg bg-gray-100 p-8">
-        <div className="grid grid-cols-2 gap-6 rounded border bg-white px-6 py-6 shadow-lg">
-          <ActiveAuction className="mt-0 mb-0 place-self-start rounded" />
+      <div className="flex h-screen w-screen items-center justify-center bg-gray-100 px-4">
+        <div className="grid gap-6 rounded border bg-white px-6 py-6 shadow-lg md:grid-cols-2">
+          <ActiveAuction className="my-0 h-96 w-96 rounded" />
           <div className="space-y-8">
             <ActiveAuction.Title className="text-3xl font-bold" />
             <div className="mt-6 grid grid-cols-2 gap-4">
@@ -23,17 +23,17 @@ export const NounsBuild = () => {
               </div>
               <div className="flex flex-col">
                 <label className="text-gray-400">Auction ends in</label>
-                <ActiveAuction.Countdown className="text-xl" />
+                <ActiveAuction.Countdown className="not-prose text-xl" />
               </div>
             </div>
             <ActiveAuction.ActiveBids>
               {(bids) => (
                 <>
-                  {bids.map((bid, idx) => {
+                  {bids?.map((bid) => {
                     return (
-                      <div className="flex flex-row" key={`bid-${idx}`}>
-                        <span>{bid.bidder}</span>
-                        <span>{bid.amount}</span>
+                      <div className="flex flex-row justify-between">
+                        <span className="font-bold">{bid.bidder}</span>
+                        <span className="text-gray-400">{bid.amount} ETH</span>
                       </div>
                     )
                   })}
