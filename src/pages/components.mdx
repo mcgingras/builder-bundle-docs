@@ -5,6 +5,124 @@ export const sections = [
   { title: 'Official libraries', id: 'official-libraries' },
 ]
 
-# Protocol SDKs
+# Components
 
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
+The recommended way to interact with the builder bundle is by using the component library. Components are totally unstyled and are thin wrappers over data that is exposed by the Nouns Builder contracts. The goal is to leave the styling totally in the hands of the developers consuming components from builder bundle. Combine these components with your favorite CSS library. {{ className: 'lead' }}
+
+---
+
+## ActiveAuction
+
+<Row>
+  <Col>
+
+    The active auction component wraps information about the currently active auction. The base component is the image of the token currently up for auction.
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example' }}
+    <ActiveAuction className="w-96 h-96 rounded" />
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## ActiveAuction.Title
+
+<Row>
+  <Col>
+
+    The title sub-component wraps information about the title of the currently active auction.
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example' }}
+    <ActiveAuction.Title className="text-xl" />
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## ActiveAuction.Price
+
+<Row>
+  <Col>
+
+    The price sub-component wraps information about the highest bid price of the currently active auction.
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example' }}
+    <ActiveAuction.Price className="text-xl" />
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## ActiveAuction.Countdown
+
+<Row>
+  <Col>
+
+    The countdown sub-component wraps the time remaining in the currently active auction. It returns a live timestring in the form h:mm:ss.
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example' }}
+    <div className="flex flex-col">
+      <label className="text-gray-400">Auction ends in</label>
+      <ActiveAuction.Countdown className="text-xl" />
+    </div>
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## ActiveAuction.Bids
+
+<Row>
+  <Col>
+
+    The bids sub-component wraps all of the current bids for the current auction. This component uses render props to pass down the bid data. The bid data follows the following spec.
+
+    <Properties>
+      <Property name="amount" type="string">
+        The file you want to add as an attachment.
+      </Property>
+      <Property name="bidder" type="string">
+        The file you want to add as an attachment.
+      </Property>
+      <Property name="tokenId" type="string">
+        The file you want to add as an attachment.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example' }}
+    <ActiveAuction.Bids>
+      {(bids: Bid) => (
+          <div className="w-full bg-gray-100 px-2 py-2 rounded">
+            <span>{`${bid.bidder} has bid ${bid.amount}`}</span>
+          </span>
+      )}
+    </ActiveAuction.Bids>
+    ```
+
+  </Col>
+</Row>
+
+---

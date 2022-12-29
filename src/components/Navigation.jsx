@@ -196,6 +196,7 @@ export const navigation = [
     title: 'Examples',
     links: [
       { title: 'Styled components', href: '/' },
+      { title: 'Templates', href: '/' },
       { title: 'nouns.build', href: '/' },
       { title: 'nouns.sh', href: '/' },
     ],

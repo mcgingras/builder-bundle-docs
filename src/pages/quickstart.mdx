@@ -6,12 +6,10 @@ export const description =
 Make sure you have have builder bundle installed in your project. {{ className: 'lead' }}
 
 <CodeGroup>
-
 ```bash {{ language: 'js' }}
 # Install builder bundle
 npm install builder-bundle
 ```
-
 </CodeGroup>
 
 ## Wrap with the provider
@@ -33,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <Component {...pageProps} />
     </BuilderProvider>
-  ) 
+  )
 }
 ````
 </CodeGroup>
@@ -43,31 +41,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 ## Using your first component
 
 Once you've wrapped your app with the `BuilderProvider` you can start using the components.
+Here's an example of using the `ActiveAuction.Countdown` component. As you can see, the component itself is unstyled, but when combined with tailwind (or any CSS you would like!) you can get some amazing results.
 
-<CodeGroup tag="GET" label="/v1/conversations">
+<CodeGroup>
+```javascript {{ language: 'js' }}
+import { ActiveAuction } from 'builder-bundle';
 
-```bash {{ title: 'cURL' }}
-curl -G https://api.protocol.chat/v1/conversations \
-  -H "Authorization: Bearer {token}" \
-  -d limit=10
+<div className="flex flex-col">
+  <label className="text-gray-400">Auction ends in</label>
+  <ActiveAuction.Countdown className="text-xl" />
+</div>
 ````
-
-```js
-import ApiClient from '@example/protocol-api'
-
-const client = new ApiClient(token)
-
-await client.conversations.list()
-```
-
 
 </CodeGroup>
 
-
-
 ## What's next?
 
-Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
+Now that you've learned how to use builder bundle, go explore more of the docs!
 
 - [Browse the full set of components(coming soon)](/#)
 - [Read about hooks (coming soon)](/#)
