@@ -1,17 +1,3 @@
-export const description =
-  'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.'
-
-# Nouns Terminal
-
-Recreating nouns terminal. {{ className: 'lead' }}
-
-## Example
-
-<Terminal />
-
-## Code
-<CodeGroup>
-```javascript {{ language: 'js' }}
 import { BuilderProvider, ActiveAuction } from 'builder-bundle'
 
 const BUILDER_COLLECTION_ADDRESS = '0xdf9b7d26c8fc806b1ae6273684556761ff02d422'
@@ -93,5 +79,3 @@ export const Terminal = () => {
     </BuilderProvider>
   )
 }
-```
-</CodeGroup>

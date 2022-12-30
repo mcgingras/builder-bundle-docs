@@ -7,6 +7,7 @@ export const a = Link
 export { Button } from '@/components/Button'
 export { CodeGroup, Code as code, Pre as pre } from '@/components/Code'
 export { NounsBuild } from '@/components/examples/NounsBuild'
+export { Terminal } from '@/components/examples/Terminal'
 
 export const h2 = function H2(props) {
   return <Heading level={2} {...props} />
