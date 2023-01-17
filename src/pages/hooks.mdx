@@ -3,6 +3,144 @@ export const description =
 
 # Hooks
 
-Many of the components are really just thin wrappers over data exposed by nouns builder contracts. If you are a dev that would prefer to fetch this data yourself so you have complete control over your markup, builder-bundle exposes hooks that let you fetch right into this data and skip over any sort of components. {{ className: 'lead' }}
+If you aren't a fan of components and want complete control over your JSX, you can use hooks. These are the same hooks that builder-bundle components use behind the scenes. There are two types of hooks in builder-bundle - write hooks and read hooks. Write hooks return functions that mutate data. Read hooks simply return data. {{ className: 'lead' }}
 
-Full demo coming soon. {{ className: 'lead' }}
+---
+
+## useActiveAuction
+
+<Row>
+  <Col>
+
+    Fetches the current Auction. The following properties exist on the Auction type.
+
+    <Properties>
+      <Property name="tokenId" type="string">
+        The tokenId.
+      </Property>
+      <Property name="collectionName" type="string">
+        The name of the collection. For example, Builder.
+      </Property>
+      <Property name="collectionDescription" type="string">
+        The description of the collection.
+      </Property>
+      <Property name="collectionSymbol" type="string">
+        The symbol of the collection.
+      </Property>
+      <Property name="highestBidPrice" type="string">
+        The highest bid price.
+      </Property>
+      <Property name="highestBidCurrency" type="string">
+        The currency of the highest bid price. For example. ETH.
+      </Property>
+      <Property name="endTime" type="string">
+        The auction end time as a unix timestamp.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example and payload' }}
+    const { data } = useActiveAuction();
+
+    const {
+      tokenId,
+      collectionName,
+      collectionDescription,
+      collectionSymbol,
+      highestBidPrice,
+      highestBidCurrency,
+      endTime
+    } = data as Auction;
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## useProposal
+
+<Row>
+  <Col>
+
+    Fetches a Proposal by a given proposal ID.
+
+    <Properties>
+      <Property name="collectionName" type="string">
+        The file you want to add as an attachment.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    ```typescript {{ title: 'Example and payload' }}
+    const { data } = useProposal(proposalId);
+
+    const {
+      proposalId,
+      targets,
+      values,
+      calldatas,
+      description,
+      descriptionHash,
+      proposal
+    } = data as Proposal;
+
+    const {
+      proposer,
+      timeCreated,
+      againstVotes,
+      forVotes,
+      abstainVotes,
+      voteStart,
+      voteEnd,
+      proposalThreshold,
+      quorumVotes,
+      executed,
+      canceled,
+      vetoed
+    } = proposal as ProposalData;
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## useProposals
+
+<Row>
+  <Col>
+
+    Fetches all of the Proposals proposed to the builder DAO.
+
+    <Properties>
+      <Property name="collectionName" type="string">
+        The file you want to add as an attachment.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    ```javascript {{ title: 'Example and payload' }}
+    const { data } = useProposals()
+
+    const {
+      collectionName,
+      collectionDescription,
+      collectionSymbol,
+      highestBidPrice,
+      highestBidCurrency,
+      tokenId,
+      endTime
+    } = data
+    ```
+
+  </Col>
+</Row>
+
+---

@@ -2,14 +2,14 @@ import { BuilderProvider, ActiveAuction } from 'builder-bundle'
 
 const BUILDER_COLLECTION_ADDRESS = '0xdf9b7d26c8fc806b1ae6273684556761ff02d422'
 const BUILDER_AUCTION_ADDRESS = '0x658d3a1b6dabcfbaa8b75cc182bf33efefdc200d'
-const BUILDER_GOVERNER_ADDRESS = '0xe3f8d5488c69d18abda42fca10c177d7c19e8b1a'
+const BUILDER_GOVERNOR_ADDRESS = '0xe3f8d5488c69d18abda42fca10c177d7c19e8b1a'
 
 export const NounsBuild = () => {
   return (
     <BuilderProvider
       collectionAddress={BUILDER_COLLECTION_ADDRESS}
       auctionAddress={BUILDER_AUCTION_ADDRESS}
-      governerAddress={BUILDER_GOVERNER_ADDRESS}
+      governorAddress={BUILDER_GOVERNOR_ADDRESS}
     >
       <div className="not-prose flex h-screen w-screen items-center justify-center bg-gray-100 px-4">
         <div className="grid gap-6 rounded border bg-white px-6 py-6 shadow-lg md:grid-cols-2">

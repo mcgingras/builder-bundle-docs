@@ -195,7 +195,9 @@ export const navigation = [
   {
     title: 'Examples',
     links: [
-      { title: 'Nouns Builder', href: '/nounsbuild' },
+      { title: 'Nouns Builder Auction (Components)', href: '/nounsbuild' },
+      { title: 'Nouns Builder Auction (Hooks)', href: '/nounsbuildhooks' },
+      { title: 'Nouns Builder Proposals (Hooks)', href: '/nounsbuildproposalshooks' },
       { title: 'Nouns Terminal', href: '/nounsh' },
     ],
   },

@@ -6,10 +6,10 @@ export const description =
 Make sure you have have builder bundle installed in your project. {{ className: 'lead' }}
 
 <CodeGroup>
-```bash {{ language: 'js' }}
-# Install builder bundle
-npm install builder-bundle
-```
+  ```bash {{ language: 'js' }}
+  # Install builder bundle
+  npm install builder-bundle
+  ```
 </CodeGroup>
 
 ## Wrap with the provider
@@ -23,16 +23,17 @@ const BUILDER_AUCTION_ADDRESS = "YOUR-AUCTION-ADDRESS";
 const BUILDER_GOVERNOR_ADDRESS = "YOUR-GOVERNOR-ADDRESS";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <BuilderProvider
-      collectionAddress={BUILDER_COLLECTION_ADDRESS}
-      auctionAddress={BUILDER_AUCTION_ADDRESS}
-      governorAddress={BUILDER_GOVERNOR_ADDRESS}
-    >
-      <Component {...pageProps} />
-    </BuilderProvider>
-  )
-}
+return (
+
+<BuilderProvider
+  collectionAddress={BUILDER_COLLECTION_ADDRESS}
+  auctionAddress={BUILDER_AUCTION_ADDRESS}
+  governorAddress={BUILDER_GOVERNOR_ADDRESS}
+>
+  <Component {...pageProps} />
+</BuilderProvider>
+) }
+
 ````
 </CodeGroup>
 
@@ -59,6 +60,6 @@ import { ActiveAuction } from 'builder-bundle';
 
 Now that you've learned how to use builder bundle, go explore more of the docs!
 
-- [Browse the full set of components(coming soon)](/#)
-- [Read about hooks (coming soon)](/#)
+- [Browse the full set of components](/components)
+- [Read about hooks](/hooks)
 - [Check out some styled examples (coming soon)](/#)
