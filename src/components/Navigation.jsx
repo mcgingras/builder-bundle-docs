@@ -197,8 +197,15 @@ export const navigation = [
     links: [
       { title: 'Nouns Builder Auction (Components)', href: '/nounsbuild' },
       { title: 'Nouns Builder Auction (Hooks)', href: '/nounsbuildhooks' },
-      { title: 'Nouns Builder Proposals (Hooks)', href: '/nounsbuildproposalshooks' },
-      { title: 'Nouns Terminal', href: '/nounsh' },
+      {
+        title: 'Nouns Builder Proposals (Hooks)',
+        href: '/nounsbuildproposalshooks',
+      },
+      {
+        title: 'Flexible Auction (Hooks)',
+        href: '/flexibleauctionhooks',
+      },
+      { title: 'Nouns Terminal (Components)', href: '/nounsh' },
     ],
   },
 ]

@@ -91,7 +91,7 @@ export const NounsBuildProposalsHooks = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-[800px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="max-h-[400px] w-full max-w-[600px] transform overflow-hidden overflow-y-scroll rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-2xl font-semibold leading-6 text-gray-900"

@@ -1,7 +1,7 @@
 import { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
-  useBidsForTokenId,
+  useBidsForToken,
   useAuction,
   useTokenMetadata,
   ActiveAuction,
@@ -22,22 +22,13 @@ const unixTimestampToDate = (unixTimestamp) => {
   })
 }
 
-/**
- * TODO
- * - way to determine if there was an actual auction or if it was sent to the treasury or the creator
- * - bett loading state, no "invalid date", although not sure that's a problem for the hook library
- * - ENS
- */
-
 export const NounsBuildHooks = () => {
   const [tokenId, setTokenId] = useState(1)
   const [isBidDialogOpen, setIsBidDialogOpen] = useState(false)
 
   const { data } = useAuction(String(tokenId))
   const { token } = useTokenMetadata(String(tokenId))
-  const { bids } = useBidsForTokenId(String(tokenId))
-
-  console.log('bids', bids)
+  const { bids } = useBidsForToken(String(tokenId))
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-100 px-4">
@@ -83,7 +74,9 @@ export const NounsBuildHooks = () => {
                         bids?.map((bid) => {
                           return (
                             <div className="flex flex-row justify-between">
-                              <span className="font-bold">{bid.bidder}</span>
+                              <span className="font-bold">
+                                {truncateString(bid.bidder, 5)}
+                              </span>
                               <a
                                 href={`https://etherscan.io/tx/${bid?.transactionHash}`}
                                 className="flex flex-row items-center space-x-2"

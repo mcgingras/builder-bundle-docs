@@ -9,6 +9,7 @@ export { CodeGroup, Code as code, Pre as pre } from '@/components/Code'
 export { NounsBuild } from '@/components/examples/NounsBuild'
 export { Terminal } from '@/components/examples/Terminal'
 export { NounsBuildHooks } from '@/components/examples/NounsBuildHooks'
+export { FlexibleAuctionHooks } from '@/components/examples/FlexibleAuctionHooks'
 export { NounsBuildProposalsHooks } from '@/components/examples/NounsBuildProposalsHooks'
 
 export const h2 = function H2(props) {
