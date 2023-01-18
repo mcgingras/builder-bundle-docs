@@ -71,9 +71,12 @@ export const NounsBuildHooks = () => {
                     </Dialog.Title>
                     <div className="divide-y-1 mt-4 space-y-4">
                       {bids?.length > 0 ? (
-                        bids?.map((bid) => {
+                        bids?.map((bid, idx) => {
                           return (
-                            <div className="flex flex-row justify-between">
+                            <div
+                              className="flex flex-row justify-between"
+                              key={idx}
+                            >
                               <span className="font-bold">
                                 {truncateString(bid.bidder, 5)}
                               </span>

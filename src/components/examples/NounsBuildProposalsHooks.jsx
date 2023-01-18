@@ -46,7 +46,7 @@ const ProposedTransaction = ({ id, target, calldata, value }) => {
         <div className="ml-4">{`${ethers.utils.formatEther(valueBN)} ETH`}</div>
       )}
       {data?.decoded?.map((decoded, idx) => (
-        <div className="ml-4" key={idx}>
+        <div className="ml-4" key={`decoded-${idx}`}>
           {decoded}
         </div>
       ))}
@@ -137,6 +137,7 @@ export const NounsBuildProposalsHooks = () => {
                     {selectedProposal?.targets?.map((target, idx) => {
                       return (
                         <ProposedTransaction
+                          key={idx}
                           id={idx}
                           target={target}
                           value={selectedProposal?.values[idx]}
@@ -155,9 +156,10 @@ export const NounsBuildProposalsHooks = () => {
       <div className="w-[1000px] rounded border bg-white p-4 shadow-lg">
         <h1 className="text-xl font-bold text-black">Proposals</h1>
         <div className="mt-4 space-y-4">
-          {data?.map((proposal) => {
+          {data?.map((proposal, idx) => {
             return (
               <div
+                key={`prop-${idx}`}
                 className="flex cursor-pointer flex-row justify-between rounded-lg border p-4"
                 onClick={() => {
                   setSelectedProposal(proposal)
